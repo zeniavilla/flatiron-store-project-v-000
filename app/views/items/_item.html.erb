@@ -1,0 +1,9 @@
+<p>
+  <%= link_to item.title, item_path(item) %> | <%= number_to_currency(item.price/100) %> | 
+  <% if !user_signed_in? %>
+    <%= item.inventory %> available
+  <% end %>
+  <% if user_signed_in? %>
+    <%= button_to 'Add to Cart', line_items_path(item_id: item) %>
+  <% end %>
+</p>
